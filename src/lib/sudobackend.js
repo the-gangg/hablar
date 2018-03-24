@@ -21,4 +21,9 @@ function add(objectAdding, path) {
     ref.push(objectAdding);
 }
 // }
-add("-L8PMCJkbfzTEdV0YHrJ", "users/-L8PMCJkbfzTEdV0YHrJ/convoKeys");
+//update {values: object}
+function update(update, path) {
+    var ref = database.ref(path);
+    ref.update(update);
+}
+update({ dm: false }, "conversations/" + "-K2ib4H77rj0LYewF7dP");

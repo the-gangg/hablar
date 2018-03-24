@@ -23,3 +23,8 @@ function add(objectAdding: any, path: string) {
     ref.push(objectAdding);
 }
 // }
+//update = {values: object}
+function update(update: any, path: string) {
+    var ref = database.ref(path);
+    ref.update(update);
+}
