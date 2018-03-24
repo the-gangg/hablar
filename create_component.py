@@ -10,14 +10,16 @@ def get_name_from_stdib():
         sys.stderr.write('Must have name. Try again\n')
         sys.exit(-1)
 
-    return name.title()
+    return name
 
 
 name = ''
 if len(sys.argv) > 1:
-    name = sys.argv[1].title()
+    name = sys.argv[1]
 else:
     name = get_name_from_stdib()
+
+name = name[0].title() + name[1:]
 
 # check if compoenent exists
 comp_path = './src/components/' + name
@@ -81,3 +83,5 @@ export default StyleSheet.create({
 file = open(comp_path + '/styles.ts', "w")
 file.write(styles_content)
 file.close()
+
+print("Component: {} has been created".format(name))
