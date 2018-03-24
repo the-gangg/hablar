@@ -1,29 +1,36 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
-import { Link } from 'react-router-native';
+import { Link, Route } from 'react-router-native';
+
+import Messages from '../Messages';
+import Settings from "../Settings";
+import AddMessage from '../AddMessage';
 
 import styles from './styles';
 
 const Nav = (props: {}) => (
-  <View style={styles.nav}>
-    <Link
-      to="/"
-      underlayColor='#f0f4f7'
-      style={styles.navItem}>
-      <Text>Home</Text>
-    </Link>
-    <Link
-      to="/about"
-      underlayColor='#f0f4f7'
-      style={styles.navItem}>
-      <Text>About</Text>
-    </Link>
-    <Link
-      to="/topics"
-      underlayColor='#f0f4f7'
-      style={styles.navItem} >
-      <Text>Topics</Text>
-    </Link>
+  <View>
+
+    <View style={styles.nav}>
+      <Link
+        to="/messages"
+        underlayColor='#f0f4f7'
+        style={styles.navItem}>
+        <Text>Messages</Text>
+      </Link>
+      <Link
+        to="/settings"
+        underlayColor='#f0f4f7'
+        style={styles.navItem}>
+        <Text>Settings</Text>
+      </Link>
+      <Link
+        to="/addMessage"
+        underlayColor='#f0f4f7'
+        style={styles.navItem} >
+        <Text>Add Message</Text>
+      </Link>
+    </View>
   </View>
 );
 
