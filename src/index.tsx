@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { NativeRouter } from 'react-router-native';
 
-import App from './components/App';
+import Home from './components/Home';
 
 export default (() => (
     <NativeRouter>
-        <App />
+        <Home />
     </NativeRouter>
 ));

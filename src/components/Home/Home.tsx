@@ -1,5 +1,12 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Route } from 'react-router-native';
+
+import Nav from '../Nav';
+import Messages from '../Messages';
+import Settings from "../Settings";
+import AddMessage from '../AddMessage';
+import Header from '../Header';
 
 import styles from './styles';
 
@@ -7,9 +14,11 @@ export default class Home extends React.Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.ts to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Header />
+        <Route exact path="/messages" component={Messages} />
+        <Route path="/addMessage" component={AddMessage} />
+        <Route path="/settings" component={Settings} />
+        <Nav />
       </View>
     );
   }
