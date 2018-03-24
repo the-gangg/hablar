@@ -1,4 +1,4 @@
-var translate = require("google-translate-api")
+var translate = require("google-translate-api");
 
 // Creating test users
 var user1 = {firstName: 'John', lastName: 'Doe', userID: 12345, userLang: 'nl'};
@@ -13,23 +13,21 @@ userMap.set(user2.userID, user2);
 var message1 = {userID: 12345, text: 'Ik hou van muffins',        messageID: 123, lang: userMap.get(12345).userLang};
 var message2 = {userID: 12346, text: 'I spea Dutch',              messageID: 124, lang: userMap.get(12346).userLang};
 var message3 = {userID: 12345, text: 'I am speaking English now', messageID: 125, lang: userMap.get(12345).userLang};
+var message4 = {userID: 12345, text: 'I worke many days',         messageID: 126, lang: userMap.get(12345).userLang};
 
 // Test Cases
 translate(message1.text, {to: user2.userLang}).then(res => {
     console.log();
     console.log("*** TEST 1: Message without any typos ***");
     console.log("Original message: " + message1.text);
-    console.log("Message language: " + message1.lang);
-    console.log("Sender language: " + userMap.get(message1.userID).uesrLang);
-    console.log("API suggested language: " + res.from.language.iso);
 
     // If there is a typo in the text or suggested corrections
     if (res.from.text.autoCorrected || res.from.text.didYouMean) {
-        console.log("Corrected output: " + res.from.text.value);
-    } else {
-        console.log("Output without corrections: " + res.text);
+        console.log("Corrected input: " + res.from.text.value);
     }
-      console.log("Receiver language: " + user2.userLang);
+
+    console.log("Output: " + res.text);
+    console.log("Receiver language: " + user2.userLang);
 }).catch(err => {
     console.error(err);
 });
@@ -38,17 +36,14 @@ translate(message2.text, {to: user1.userLang}).then(res => {
     console.log();
     console.log("*** TEST 2: Message with a typo ***");
     console.log("Original message: " + message2.text);
-    console.log("Message language: " + message2.lang);
-    console.log("Sender language: " + userMap.get(message2.userID).userLang);
-    console.log("API suggested language: " + res.from.language.iso);
 
     // If there is a typo in the text or suggested corrections
     if (res.from.text.autoCorrected || res.from.text.didYouMean) {
-        console.log("Corrected output: " + res.from.text.value);
-    } else {
-        console.log("Output without corrections: " + res.text);
+        console.log("Corrected input: " + res.from.text.value);
     }
-      console.log("Receiver language: " + user1.userLang);
+
+    console.log("Output: " + res.text);
+    console.log("Receiver language: " + user1.userLang);
 }).catch(err => {
     console.error(err);
 });
@@ -60,13 +55,34 @@ translate(message3.text, {to: user2.userLang}).then(res => {
     console.log("Message language: " + message3.lang);
     console.log("Sender language: " + userMap.get(message3.userID).userLang);
     console.log("API suggested language: " + res.from.language.iso);
+    console.log();
 
     // If there is a typo in the text or suggested corrections
     if (res.from.text.autoCorrected || res.from.text.didYouMean) {
-        console.log("Corrected output: " + res.from.text.value);
-    } else {
-        console.log("Output without corrections: " + res.text);
+        console.log("Corrected input: " + res.from.text.value);
     }
+
+    console.log("Output: " + res.text);
+    console.log("Receiver language: " + user2.userLang);
+}).catch(err => {
+    console.error(err);
+});
+
+translate(message4.text, {to: user2.userLang}).then(res => {
+    console.log();
+    console.log("*** TEST 4: Spelling error in atypical language ***");
+    console.log("Original message: " + message4.text);
+    console.log("Message language: " + message4.lang);
+    console.log("Sender language: " + userMap.get(message4.userID).userLang);
+    console.log("API suggested language: " + res.from.language.iso);
+    console.log();
+
+    // If there is a typo in the text or suggested corrections
+    if (res.from.text.autoCorrected || res.from.text.didYouMean) {
+        console.log("Corrected input: " + res.from.text.value);
+    }
+
+    console.log("Output: " + res.text);
     console.log("Receiver language: " + user2.userLang);
 }).catch(err => {
     console.error(err);
