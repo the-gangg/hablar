@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 import styles from './styles';
 
 const Messages = (props: {}) => (
   <View style={styles.container}>
+    <Text>In Messages Component</Text>
   </View>
 );
- export default Messages;
+export default Messages;
