@@ -17,16 +17,9 @@ firebase.initializeApp({
 // function Hermes() {
 console.log("hi");
 var database = firebase.database();
-
-function newMessage(message: any, conversationKey: any) {
-    var ref = database.ref("conversations/" + conversationKey + "/messages");
-    ref.push(message);
+//example path "conversations/" + conversationKey + "/messages"
+function add(objectAdding: any, path: string) {
+    var ref = database.ref(path);
+    ref.push(objectAdding);
 }
 // }
-
-newMessage({
-    username: "Walter",
-    text: "bye",
-    language: "spanish",
-},
-    "-K2ib4H77rj0LYewF7dP");

@@ -15,13 +15,10 @@ firebase.initializeApp({
 // function Hermes() {
 console.log("hi");
 var database = firebase.database();
-function newMessage(message, conversationKey) {
-    var ref = database.ref("conversations/" + conversationKey + "/messages");
-    ref.push(message);
+//example path "conversations/" + conversationKey + "/messages"
+function add(objectAdding, path) {
+    var ref = database.ref(path);
+    ref.push(objectAdding);
 }
 // }
-newMessage({
-    username: "Walter",
-    text: "bye",
-    language: "spanish"
-}, "-K2ib4H77rj0LYewF7dP");
+add("-L8PMCJkbfzTEdV0YHrJ", "users/-L8PMCJkbfzTEdV0YHrJ/convoKeys");
