@@ -7,7 +7,7 @@ import styles from './styles';
 
 const LogIn = () => (
   <View style={styles.container}>
-    <FormBox name='Log In' inputs={inputs} onSubmit={(data: {}) => { console.log(data); }} />
+    <FormBox name='Log In' inputs={inputs} onSubmit={(data: {}) => { data; }} />
     <Text>Don’t have an account?</Text>
     <Link to='/signup' ><Text style={{ color: 'skyblue' }}>Sign Up</Text></Link>
   </View >

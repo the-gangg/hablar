@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import { Link, Route } from 'react-router-native';
+import { Link } from 'react-router-native';
 
-import LanguagePanel from '../LanguagePanel';
 import styles from './styles';
 
-const Settings = (props: {}) => (
+const Settings = () => (
   <ScrollView style={styles.settings}>
     <Text style={{ fontSize: 20 }}> User Settings </Text>
 
@@ -17,7 +16,7 @@ const Settings = (props: {}) => (
       <Link
         to="/languagePanel"
         underlayColor='#f0f4f7' >
-        <Text>Language: "currLang"</Text>
+        <Text>Language: “currLang”</Text>
       </Link>
     </View>
 

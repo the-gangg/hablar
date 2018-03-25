@@ -1,14 +1,10 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
-import { Link, Route } from 'react-router-native';
-
-import Messages from '../Messages';
-import Settings from "../Settings";
-import createChat from '../createChat';
+import { Link } from 'react-router-native';
 
 import styles from './styles';
 
-const Nav = (props: {}) => (
+const Nav = () => (
   <View>
     <View style={styles.nav}>
       <Link

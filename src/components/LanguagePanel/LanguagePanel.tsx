@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { View, Picker, Text } from 'react-native';
+import { View, Picker } from 'react-native';
 
-import styles from './styles';
-
-const LanguagePanel = (props: {}) => (
+const LanguagePanel = () => (
   <View >
-    <Picker selectedValue={"en"}>
+    <Picker selectedValue={'en'}>
 
       <Picker.Item label="Afrikaans" value="af" />
       <Picker.Item label="Albanian" value="sq" />

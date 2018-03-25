@@ -62,6 +62,6 @@ const SingleMessage = ({ message, isUser = false }: SingleMessageProps) => {
       <Text> {message} </Text>
     </View>
   );
-}
+};
 
 export default Chat;

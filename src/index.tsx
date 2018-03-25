@@ -3,8 +3,10 @@ import { NativeRouter } from 'react-router-native';
 
 import App from './components/App';
 
-export default (() => (
-    <NativeRouter>
-        <App />
-    </NativeRouter>
-));
+const HermesApp = () => (
+  <NativeRouter>
+    <App />
+  </NativeRouter>
+);
+
+export default HermesApp;
