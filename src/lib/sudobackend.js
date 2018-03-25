@@ -25,3 +25,11 @@ newMessage({
     text: "bye",
     language: "spanish"
 }, "-K2ib4H77rj0LYewF7dP");
+function getObject(path) {
+    database.ref(path).on("value", function (snapshot) {
+        console.log(snapshot.val());
+    }, function (error) {
+        console.log("Error: " + error.code);
+    });
+}
+getObject("conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u");

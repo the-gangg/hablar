@@ -30,3 +30,16 @@ newMessage({
     language: "spanish",
 },
     "-K2ib4H77rj0LYewF7dP");
+
+//Example path: "conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u"
+//or            "converstions/{convorsationKey}/messages/{messageKey}"
+function getObject(path: string) {
+    database.ref(path).on("value", function (snapshot: any) {
+        console.log(snapshot.val());
+    }, function (error: any) {
+        console.log("Error: " + error.code);
+    });
+}
+
+
+getObject("conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u");
