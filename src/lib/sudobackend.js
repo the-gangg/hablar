@@ -15,11 +15,13 @@ firebase.initializeApp({
 // function Hermes() {
 console.log("hi");
 var database = firebase.database();
-function newMessage(message, conversationKey) {
-    var ref = database.ref("conversations/" + conversationKey + "/messages");
-    ref.push(message);
+//example path "conversations/" + conversationKey + "/messages"
+function add(objectAdding, path) {
+    var ref = database.ref(path);
+    ref.push(objectAdding);
 }
 // }
+<<<<<<< HEAD
 newMessage({
     username: "Walter",
     text: "bye",
@@ -33,3 +35,11 @@ function getObject(path) {
     });
 }
 getObject("conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u");
+=======
+//update {values: object}
+function update(update, path) {
+    var ref = database.ref(path);
+    ref.update(update);
+}
+update({ dm: false }, "conversations/" + "-K2ib4H77rj0LYewF7dP");
+>>>>>>> be1ede76e36c1075048958f8be765424769942df
