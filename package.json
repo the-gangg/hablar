@@ -7,6 +7,7 @@
     "@types/react": "^16.0.38",
     "@types/react-native": "^0.52.0",
     "@types/react-test-renderer": "^16.0.0",
+    "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
     "jest-expo": "25.0.0",
@@ -40,7 +41,10 @@
       "json",
       "node"
     ],
-    "preset": "jest-expo",
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-router-native)/"
+    ],
     "testMatch": [
       "**/__tests__/**/*.[tj]s?(x)",
       "**/?(*.)(spec|test).[tj]s?(x)"

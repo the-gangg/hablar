@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { Link } from 'react-router-native';
 
-import FormBox from '../FormBox';
+import FormBox from '../components/FormBox';
 import styles from './styles';
 
 const SignUp = () => (

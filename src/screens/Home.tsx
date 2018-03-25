@@ -2,18 +2,18 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { Route, Switch } from 'react-router-native';
 
-import Nav from '../Nav';
-import Messages from '../Messages';
-import Settings from '../Settings';
-import CreateChat from '../CreateChat';
-import Header from '../Header';
-import Chat from '../Chat';
-import LanguagePanel from '../LanguagePanel';
+import Nav from '../components/Nav';
+import Messages from '../components/Messages';
+import Settings from '../components/Settings';
+import CreateChat from '../components/CreateChat';
+import Header from '../components/Header';
+import Chat from '../components/Chat';
+import LanguagePanel from '../components/LanguagePanel';
 
 import styles from './styles';
 
 const Home = () => (
-  <View style={styles.container}>
+  <View style={styles.homeContainer}>
     <Header />
     <View style={styles.routes}>
       <Switch>
