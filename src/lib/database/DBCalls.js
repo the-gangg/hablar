@@ -64,4 +64,17 @@ var message = {
     language: "Nigerian",
     key: "-K2ib4H77rj0LYewF7dP"
 };
-createMessage(message);
+// createMessage(message);
+var user = {
+    email: "wseymour@iastate.edu",
+    username: "walterino",
+    password: "hello",
+    conversationKey: "112"
+};
+createUser(user);
+function validatePassword(pass) {
+    if (pass.length > 5) {
+        return true;
+    }
+    return false;
+}
