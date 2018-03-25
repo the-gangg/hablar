@@ -3,9 +3,9 @@ import { View, Text } from 'react-native';
 
 import styles from './styles';
 
-const AddMessage = (props: {}) => (
+const CreateChat = (props: {}) => (
   <View style={styles.container}>
     <Text> In New Message</Text>
   </View>
 );
-export default AddMessage;
+export default CreateChat;

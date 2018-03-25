@@ -1,10 +1,10 @@
 import * as React from 'react';
-import AddMessage from './';
+import CreateChat from './';
 
 import * as renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const rendered = renderer.create(<AddMessage />).toJSON();
+  const rendered = renderer.create(<CreateChat />).toJSON();
   expect(rendered).toBeTruthy();
 });
 
