@@ -21,9 +21,15 @@ function add(objectAdding, path) {
     ref.push(objectAdding);
 }
 // }
-//update {values: object}
+//update = {values: object}
 function update(update, path) {
     var ref = database.ref(path);
     ref.update(update);
 }
-update({ dm: false }, "conversations/" + "-K2ib4H77rj0LYewF7dP");
+//path: path to element
+//key: the key of the element to remove 
+function remove(path, key) {
+    var ref = database.ref(path);
+    ref.child(key).remove();
+}
+remove("conversations/" + "-K2ib4H77rj0LYewF7dP" + "/messages" + "-L8PFsyOnqCpf2ztEhWw", "language");
