@@ -1,18 +1,28 @@
 import * as React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
+import { Redirect, Link } from 'react-router-native';
 
 import styles from './styles';
 
 const SignUp = () => (
   <View style={styles.container}>
     <FormBox />
-  </View>
+    <Text>Already have an account?</Text>
+    <Link to='/login' ><Text style={{ color: 'skyblue' }}>Log in</Text></Link>
+  </View >
 );
+
 
 interface FormBoxState {
   name: string,
   email: string,
   password: string,
+  isAuth: boolean,
+  errors?: {
+    name?: string;
+    email?: string;
+    password?: string;
+  } | null
 }
 
 class FormBox extends React.Component<{}, FormBoxState>  {
@@ -22,11 +32,49 @@ class FormBox extends React.Component<{}, FormBoxState>  {
       name: '',
       email: '',
       password: '',
+      isAuth: false,
+      errors: null,
     };
+
+    this.validateInput = this.validateInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
+
+  validateInput() {
+    // TODO(DEV) validate input, and set error in state
+    return true;
+  }
+
+  renderErrors() {
+    // TODO(DEV) return error view component
+  }
+
+  handleSubmit() {
+    const isValid = this.validateInput();
+    if (!isValid) {
+      this.renderErrors();
+    }
+
+    // TODO(DEV) get succes signal 
+    const success = true;
+    if (success) {
+      // redirect to home
+      this.setState({ isAuth: true });
+    }
+  }
+
   render() {
-    const { name, email, password } = this.state;
-    const InputElementsContainer = ({ }) => (
+    const { isAuth, name, email, password } = this.state;
+    if (isAuth) {
+      return (
+        <Redirect to={{
+          pathname: '/',
+        }} />
+      );
+    }
+
+    const InputElementsContainer = () => (
       <View style={styles.inputElements} >
         <TextBox
           onChangeText={(text) => { }}
@@ -47,7 +95,9 @@ class FormBox extends React.Component<{}, FormBoxState>  {
           value={password}
           secureTextEntry
         />
+        <Button onPress={this.handleSubmit} title="Sign Up" />
       </View>
+
     );
 
     return (
@@ -55,8 +105,9 @@ class FormBox extends React.Component<{}, FormBoxState>  {
         <View style={styles.formBoxHeader} >
           <Text style={styles.formBoxHeaderText}>Hermes</Text>
         </View>
+        {this.renderErrors()}
         <InputElementsContainer />
-        <View style={{ width: '100%', height: 50, backgroundColor: 'black' }} />
+        {/* <View style={{ width: '100%', height: 50, backgroundColor: 'black' }} /> */}
       </View>
     );
   }
