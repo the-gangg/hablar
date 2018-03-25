@@ -1,4 +1,5 @@
 import { Database } from './sudobackend';
+import * as firebase from "firebase";
 
 interface User {
     email: string;
@@ -21,28 +22,28 @@ function createConversation(conversation: any) {
 }
 
 function createUser(user: User) {
-    firebase.auth().createUserWithEmailAndPassword(user.email, user.password).catch(function (error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        //TODO exit if there is an issue
+    if (validatePassword(user.password)) {
+        firebase.auth().createUserWithEmailAndPassword(user.email, user.password).catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            //TODO exit if there is an issue
+        });
+    }
+    else {
+        return false;
+    }
+    return true;
+}
+
+function logOut() {
+    firebase.auth().signOut().then(function () {
+        return true;
+        // Sign-out successful.
+    }).catch(function (error) {
+        return false;
+        // An error happened.
     });
 }
-
-const message = {
-    username: "victurd",
-    text: "hello",
-    language: "Nigerian",
-    key: "-K2ib4H77rj0LYewF7dP",
-}
-// createMessage(message);
-
-let user = {
-    email: "wseymour@iastate.edu",
-    username: "walterino",
-    password: "hello",
-    conversationKey: "112"
-}
-createUser(user);
 
 function validatePassword(pass: string) {
     if (pass.length > 5) {

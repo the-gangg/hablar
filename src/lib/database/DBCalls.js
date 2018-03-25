@@ -56,22 +56,27 @@ function createConversation(conversation) {
     database.add(conversation, "conversations/");
 }
 function createUser(user) {
-    database.add(user, "users/");
+    if (validatePassword(user.password)) {
+        firebase.auth().createUserWithEmailAndPassword(user.email, user.password)["catch"](function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            //TODO exit if there is an issue
+        });
+    }
+    else {
+        return false;
+    }
+    return true;
 }
-var message = {
-    username: "victurd",
-    text: "hello",
-    language: "Nigerian",
-    key: "-K2ib4H77rj0LYewF7dP"
-};
-// createMessage(message);
-var user = {
-    email: "wseymour@iastate.edu",
-    username: "walterino",
-    password: "hello",
-    conversationKey: "112"
-};
-createUser(user);
+function logOut() {
+    firebase.auth().signOut().then(function () {
+        return true;
+        // Sign-out successful.
+    })["catch"](function (error) {
+        return false;
+        // An error happened.
+    });
+}
 function validatePassword(pass) {
     if (pass.length > 5) {
         return true;
