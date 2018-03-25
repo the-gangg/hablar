@@ -35,49 +35,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var firebase = require("firebase");
-firebase.initializeApp({
-    apiKey: "AIzaSyCaX524VyrMQEeY8OIlMKStuokVeys4pIw",
-    authDomain: "hermes-2820.firebaseapp.com",
-    databaseURL: "https://hermes-2820.firebaseio.com",
-    storageBucket: "hermes-2820.appspot.com"
-});
-var Database = /** @class */ (function () {
-    function Database() {
-        this.db = firebase.database();
-    }
-    //example path "conversations/" + conversationKey + "/messages"
-    Database.prototype.add = function (objectAdding, path) {
-        var ref = this.db.ref(path);
-        ref.push(objectAdding);
-    };
-    // }
-    //update = {values: object}
-    Database.prototype.update = function (update, path) {
-        var ref = this.db.ref(path);
-        ref.update(update);
-    };
-    //path: path to element
-    //key: the key of the element to remove 
-    Database.prototype.remove = function (path, key) {
-        var ref = this.db.ref(path);
-        ref.child(key).remove();
-    };
-    //Example path: "conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u"
-    //or "converstions/{convorsationKey}/messages/{messageKey} to get a message object"
-    Database.prototype.getObject = function (path) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, this.db.ref(path).once("value").then(function (snapshot) {
-                        //console.log(snapshot.val());
-                        return snapshot.val();
-                    }, function (error) {
-                        //console.log("Error: " + error.code);
-                        //return null;
-                    })];
-            });
+var sudobackend_1 = require("./sudobackend");
+var database = new sudobackend_1.Database();
+function createMessage(message) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, database.getObject("conversations/" + message.key)];
+                case 1:
+                    //console.log(await database.getObject("conversations/" + conversationKey));
+                    if ((_a.sent()) != null) {
+                        database.add(message, "conversations/" + message.key + "/messages");
+                    }
+                    return [2 /*return*/];
+            }
         });
-    };
-    return Database;
-}());
-exports.Database = Database;
+    });
+}
+function createConversation(conversation) {
+    database.add(conversation, "conversations/");
+}
+function createUser(user) {
+    database.add(user, "users/");
+}
+var message = {
+    username: "victurd",
+    text: "hello",
+    language: "Nigerian",
+    key: "-K2ib4H77rj0LYewF7dP"
+};
+createMessage(message);

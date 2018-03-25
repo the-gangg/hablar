@@ -1,5 +1,6 @@
 import * as firebase from "firebase";
 
+
 firebase.initializeApp({
     apiKey: "AIzaSyCaX524VyrMQEeY8OIlMKStuokVeys4pIw",
     authDomain: "hermes-2820.firebaseapp.com",
@@ -13,10 +14,10 @@ firebase.initializeApp({
 //     text: string;
 //     language: string;
 // }
-interface Database {
+export interface Database {
     db: firebase.database.Database;
 }
-class Database {
+export class Database {
     constructor() {
         this.db = firebase.database();
     }
@@ -43,14 +44,17 @@ class Database {
 
     //Example path: "conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u"
     //or "converstions/{convorsationKey}/messages/{messageKey} to get a message object"
-    getObject(path: string) {
-        this.db.ref(path).on("value", function (snapshot: any) {
-            console.log(snapshot.val());
+    async getObject(path: string) {
+        return this.db.ref(path).once("value").then(function (snapshot: any) {
+            //console.log(snapshot.val());
+            return snapshot.val();
         }, function (error: any) {
-            console.log("Error: " + error.code);
+            //console.log("Error: " + error.code);
+            //return null;
+
         });
     }
+
 }
 
-var database = new Database();
-database.add({ username: "Walter", text: "what up?", language: "English" }, "conversations/-K2ib4H77rj0LYewF7dP/messages");
+
