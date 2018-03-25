@@ -5,6 +5,7 @@ import { NativeRouter, Route, Link } from 'react-router-native';
 import Nav from "../Nav";
 import Home from "../Home";
 import About from "../About";
+import SignUp from '../SignUp';
 
 import styles from './styles';
 
@@ -16,6 +17,7 @@ export default class App extends React.Component<{}> {
 
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
+        <Route path="/signup" component={SignUp} />
       </View>
     );
   }

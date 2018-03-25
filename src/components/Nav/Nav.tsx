@@ -24,6 +24,12 @@ const Nav = (props: {}) => (
       style={styles.navItem} >
       <Text>Topics</Text>
     </Link>
+    <Link
+      to="/signup"
+      underlayColor='#f0f4f7'
+      style={styles.navItem} >
+      <Text>Sign Up</Text>
+    </Link>
   </View>
 );
 
