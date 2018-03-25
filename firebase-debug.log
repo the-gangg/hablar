@@ -1,0 +1,32 @@
+[debug] [2018-03-24T22:22:24.639Z] ----------------------------------------------------------------------
+[debug] [2018-03-24T22:22:24.642Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2018-03-24T22:22:24.642Z] CLI Version:   3.17.7
+[debug] [2018-03-24T22:22:24.642Z] Platform:      darwin
+[debug] [2018-03-24T22:22:24.642Z] Node Version:  v8.9.4
+[debug] [2018-03-24T22:22:24.643Z] Time:          Sat Mar 24 2018 17:22:24 GMT-0500 (CDT)
+[debug] [2018-03-24T22:22:24.643Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-24T22:22:24.654Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-24T22:22:24.654Z] > authorizing via signed-in user
+[debug] [2018-03-24T22:22:24.656Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/hermes-2820  
+  
+ Sat Mar 24 2018 17:22:24 GMT-0500 (CDT)
+[debug] [2018-03-24T22:22:25.128Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-24T22:22:25.129Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/hermes-2820/tokens  
+  
+ Sat Mar 24 2018 17:22:25 GMT-0500 (CDT)
+[debug] [2018-03-24T22:22:25.475Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-24T22:22:25.476Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/hermes-2820  
+  
+ Sat Mar 24 2018 17:22:25 GMT-0500 (CDT)
+[debug] [2018-03-24T22:22:25.683Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/lucas/Desktop/HackISU2018/hermes-f'...
+[info] 
+[debug] [2018-03-24T22:22:25.686Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/298414282550/clients/_:getWebAppConfig  
+  
+ Sat Mar 24 2018 17:22:25 GMT-0500 (CDT)
+[debug] [2018-03-24T22:22:25.917Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] ✔  hosting: Local server: http://localhost:5000
+

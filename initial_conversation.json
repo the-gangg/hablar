@@ -1,0 +1,24 @@
+{
+    "conversations": {
+        "-K2ib4H77rj0LYewF7dP": {
+            "messages": [
+                {
+                    "username": "Walter",
+                    "text": "Hi",
+                    "Language": "English"
+                },
+                {
+                    "username": "Lucas",
+                    "text": "Hello",
+                    "Language": "English"
+                }
+            ],
+            "users": [
+                "Walter",
+                "Lucas"
+            ],
+            "name": "Gruesome Twosome",
+            "dm": false
+        }
+    }
+}

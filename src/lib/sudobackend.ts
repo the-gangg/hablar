@@ -15,7 +15,6 @@ firebase.initializeApp({
 // }
 
 // function Hermes() {
-console.log("hi");
 var database = firebase.database();
 //example path "conversations/" + conversationKey + "/messages"
 function add(objectAdding: any, path: string) {
@@ -23,19 +22,6 @@ function add(objectAdding: any, path: string) {
     ref.push(objectAdding);
 }
 // }
-
-//Example path: "conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u"
-//or            "converstions/{convorsationKey}/messages/{messageKey} to get a message object"
-function getObject(path: string) {
-    database.ref(path).on("value", function (snapshot: any) {
-        console.log(snapshot.val());
-    }, function (error: any) {
-        console.log("Error: " + error.code);
-    });
-}
-
-
-getObject("conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u");
 //update = {values: object}
 function update(update: any, path: string) {
     var ref = database.ref(path);
@@ -47,4 +33,15 @@ function update(update: any, path: string) {
 function remove(path: string, key: string) {
     var ref = database.ref(path);
     ref.child(key).remove();
+}
+
+
+//Example path: "conversations/-K2ib4H77rj0LYewF7dP/messages/-L8PLyG6zcEOloHWTB4u"
+//or            "converstions/{convorsationKey}/messages/{messageKey} to get a message object"
+function getObject(path: string) {
+    database.ref(path).on("value", function (snapshot: any) {
+        console.log(snapshot.val());
+    }, function (error: any) {
+        console.log("Error: " + error.code);
+    });
 }
