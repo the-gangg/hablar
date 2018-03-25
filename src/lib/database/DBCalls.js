@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var sudobackend_1 = require("./sudobackend");
+var firebase = require("firebase");
 var database = new sudobackend_1.Database();
 function createMessage(message) {
     return __awaiter(this, void 0, void 0, function () {
@@ -53,33 +54,128 @@ function createMessage(message) {
     });
 }
 function createConversation(conversation) {
-    database.add(conversation, "conversations/");
+    var key = database.add(conversation, "conversations/");
+    // console.log(conversation);
+    for (var i = 0; i < conversation.users.length; i++) {
+        console.log("hello" + key);
+        console.log(conversation.users[i]);
+        database.add(key, "users/" + conversation.users[i] + "/conversationKey");
+    }
 }
 function createUser(user) {
-    if (validatePassword(user.password)) {
-        firebase.auth().createUserWithEmailAndPassword(user.email, user.password)["catch"](function (error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            //TODO exit if there is an issue
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (validatePassword(user.password)) {
+                console.log('got in here');
+                //const signedInUser = await firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
+                firebase.auth().createUserWithEmailAndPassword(user.email, user.password)["catch"](function (error) {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(error.message);
+                    //TODO exit if there is an issue
+                });
+            }
+            else {
+                return [2 /*return*/, false];
+            }
+            database.add(user, "users");
+            // const signedInUser = firebase.auth().currentUser;
+            // console.log(signedInUser);
+            // if (signedInUser) {
+            //     // User is signed in.
+            //     console.log("Am I in here????");
+            //     database.add({ uid: signedInUser.uid, conversationKey: [] }, "users");
+            // } else {
+            //     // No user is signed in.
+            // }
+            return [2 /*return*/, true];
         });
-    }
-    else {
-        return false;
-    }
-    return true;
+    });
+}
+function login(objectAdding) {
+    firebase.auth().signInWithEmailAndPassword(objectAdding.email, objectAdding.password)["catch"](function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+    });
 }
 function logOut() {
     firebase.auth().signOut().then(function () {
-        return true;
+        console.log(true);
         // Sign-out successful.
     })["catch"](function (error) {
-        return false;
+        console.log(false);
         // An error happened.
     });
 }
+var user = {
+    username: "Michh",
+    email: "billl@iastate.edu",
+    password: "Helllooooo",
+    conversationKey: ["hell"]
+};
+// createUser(user);
+//console.log(logOut());
 function validatePassword(pass) {
     if (pass.length > 5) {
         return true;
     }
     return false;
 }
+function findUserByEmail(email) {
+    return __awaiter(this, void 0, void 0, function () {
+        var res, snapshot, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.log(email);
+                    res = database.db.ref("users");
+                    return [4 /*yield*/, res.orderByChild('email').equalTo(email).once("value")];
+                case 1:
+                    snapshot = _a.sent();
+                    console.log(snapshot.val());
+                    for (data in snapshot.val()) {
+                        return [2 /*return*/, data];
+                    }
+                    console.log('This is not an iterable');
+                    return [2 /*return*/, null];
+            }
+        });
+    });
+}
+function inviteConversation(arr, conversation) {
+    return __awaiter(this, void 0, void 0, function () {
+        var i, c;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    i = 0;
+                    _a.label = 1;
+                case 1:
+                    if (!(i < arr.length)) return [3 /*break*/, 4];
+                    console.log(arr[i]);
+                    return [4 /*yield*/, findUserByEmail(arr[i])];
+                case 2:
+                    c = _a.sent();
+                    if (c != null) {
+                        conversation.users.push(c);
+                    }
+                    _a.label = 3;
+                case 3:
+                    i++;
+                    return [3 /*break*/, 1];
+                case 4:
+                    createConversation(conversation);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+var c = {
+    users: [],
+    message: ["hi"],
+    name: "hi"
+};
+var a = ["millerl@iastate.edu"];
+inviteConversation(a, c);

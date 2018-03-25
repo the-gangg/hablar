@@ -48,13 +48,8 @@ var Database = /** @class */ (function () {
     }
     //example path "conversations/" + conversationKey + "/messages"
     Database.prototype.add = function (objectAdding, path) {
-        firebase.auth().createUserWithEmailAndPassword(objectAdding.email, objectAdding.password)["catch"](function (error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            //TODO exit if there is an issue
-        });
         var ref = this.db.ref(path);
-        ref.push(objectAdding);
+        return ref.push(objectAdding).key;
     };
     // }
     //update = {values: object}
