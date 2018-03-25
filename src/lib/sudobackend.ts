@@ -41,3 +41,10 @@ function update(update: any, path: string) {
     var ref = database.ref(path);
     ref.update(update);
 }
+
+//path: path to element
+//key: the key of the element to remove 
+function remove(path: string, key: string) {
+    var ref = database.ref(path);
+    ref.child(key).remove();
+}
