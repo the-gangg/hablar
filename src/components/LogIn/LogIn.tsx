@@ -7,8 +7,8 @@ import styles from './styles';
 const LogIn = () => (
   <View style={styles.container}>
     <FormBox />
-    <Text>Already have an account?</Text>
-    <Link to={{ pathname: '/login' }} ><Text style={{ color: 'skyblue' }}>Log in</Text></Link>
+    <Text>Don't have an account?</Text>
+    <Link to='/signup' ><Text style={{ color: 'skyblue' }}>Sign Up</Text></Link>
   </View >
 );
 
@@ -78,12 +78,6 @@ class FormBox extends React.Component<{}, FormBoxState>  {
       <View style={styles.inputElements} >
         <TextBox
           onChangeText={(text) => { }}
-          placeholder='Your nick name (Alex)'
-          label={'name'}
-          value={name}
-        />
-        <TextBox
-          onChangeText={(text) => { }}
           placeholder='Your email (xxx@xxx.xxx)'
           label={'email'}
           value={email}
@@ -95,7 +89,7 @@ class FormBox extends React.Component<{}, FormBoxState>  {
           value={password}
           secureTextEntry
         />
-        <Button onPress={this.handleSubmit} title="Sign Up" />
+        <Button onPress={this.handleSubmit} title="Sign In" />
       </View>
 
     );
@@ -112,8 +106,6 @@ class FormBox extends React.Component<{}, FormBoxState>  {
     );
   }
 }
-
-
 
 interface TextBoxProps {
   label: string;
