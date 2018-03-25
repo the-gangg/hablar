@@ -23,7 +23,8 @@
     "eject": "react-native-scripts-ts eject",
     "android": "react-native-scripts-ts android",
     "ios": "react-native-scripts-ts ios",
-    "test": "node node_modules/jest/bin/jest.js"
+    "test": "node node_modules/jest/bin/jest.js",
+    "lint": "eslint . --ext .ts,.tsx --ignore-pattern node_modules/"
   },
   "jest": {
     "globals": {

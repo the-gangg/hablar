@@ -1,5 +1,10 @@
 import { StyleSheet } from 'react-native';
 
-import styles from '../SignUp/styles';
+export default StyleSheet.create({
+  container: {
+    marginTop: 70,
+    padding: 10,
+    alignItems: 'center',
+  },
 
-export default styles;
+});

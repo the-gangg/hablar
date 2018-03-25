@@ -6,6 +6,7 @@
         }
     },
     "env": {
+        "node": true,
         "jest": true
     },
     "extends": [
@@ -31,6 +32,7 @@
         "quotes": [
             "warn",
             "single"
-        ]
+        ],
+        "no-console": "warn"
     }
 }

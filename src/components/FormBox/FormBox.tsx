@@ -8,7 +8,7 @@ export interface FormBoxState {
   inputs: { [input: string]: string };
 }
 
-export interface FormInput extends TextBoxProps {
+export interface FormInput extends TextBoxAttributes {
   validate?: (value: string) => true | string;
 }
 
@@ -32,6 +32,7 @@ class FormBox extends React.Component<FormBoxProps, FormBoxState>  {
     this.validateInput = this.validateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleChangeText = this.handleChangeText.bind(this);
   }
 
   validateInput(): boolean {
@@ -53,9 +54,14 @@ class FormBox extends React.Component<FormBoxProps, FormBoxState>  {
     this.props.onSubmit({ ...this.state.inputs });
   }
 
+  handleChangeText(label: string) {
+    return (value: string) => (
+      this.setState({ inputs: { ...this.state.inputs, [label]: value } }));
+  }
+
   render() {
     const InputElementsContainer = this.props.inputs.map((input: FormInput, i: number) => (
-      <TextBox key={`textbox-${i}`} {...input} />
+      <TextBox key={`textbox-${i}`} {...input} onChangeText={this.handleChangeText(input.label)} />
     ));
 
     return (
@@ -74,14 +80,15 @@ class FormBox extends React.Component<FormBoxProps, FormBoxState>  {
   }
 }
 
-
-
-interface TextBoxProps {
+interface TextBoxAttributes {
   label: string;
   placeholder?: string;
-  onChangeText?: (text: string) => void;
   secureTextEntry?: boolean;
   value?: string;
+}
+
+interface TextBoxProps extends TextBoxAttributes {
+  onChangeText?: (text: string) => void;
 }
 
 const TextBox = (props: TextBoxProps) => {
