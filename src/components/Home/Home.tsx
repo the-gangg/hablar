@@ -15,9 +15,11 @@ export default class Home extends React.Component<{}> {
     return (
       <View style={styles.container}>
         <Header />
-        <Route exact path="/messages" component={Messages} />
-        <Route path="/addMessage" component={AddMessage} />
-        <Route path="/settings" component={Settings} />
+        <View style={styles.routes}>
+          <Route exact path="/messages" component={Messages} />
+          <Route path="/addMessage" component={AddMessage} />
+          <Route path="/settings" component={Settings} />
+        </View>
         <Nav />
       </View>
     );
