@@ -4,7 +4,7 @@ import { Link, Route } from 'react-router-native';
 
 import Messages from '../Messages';
 import Settings from "../Settings";
-import AddMessage from '../AddMessage';
+import createChat from '../createChat';
 
 import styles from './styles';
 
@@ -24,7 +24,7 @@ const Nav = (props: {}) => (
         <Text>Settings</Text>
       </Link>
       <Link
-        to="/addMessage"
+        to="/createChat"
         underlayColor='#f0f4f7'
         style={styles.navItem} >
         <Text>Add Message</Text>
