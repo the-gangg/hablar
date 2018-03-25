@@ -7,7 +7,7 @@ import styles from './styles';
 
 const Settings = (props: {}) => (
   <ScrollView style={styles.settings}>
-    <Text style={{fontSize: 20}}> User Settings </Text>
+    <Text style={{ fontSize: 20 }}> User Settings </Text>
 
     <View style={styles.optionBox}>
       <Text>Name </Text>
@@ -16,8 +16,7 @@ const Settings = (props: {}) => (
     <View style={styles.optionBox}>
       <Link
         to="/languagePanel"
-        underlayColor='#f0f4f7'
-        style={styles.navItem} >
+        underlayColor='#f0f4f7' >
         <Text>Language: "currLang"</Text>
       </Link>
     </View>
