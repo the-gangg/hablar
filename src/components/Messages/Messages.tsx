@@ -1,11 +1,17 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+import Conversation from '../Conversation';
 
 import styles from './styles';
 
 const Messages = (props: {}) => (
-  <View style={styles.container}>
-    <Text>In Messages Component</Text>
-  </View>
+  <ScrollView style={styles.container}>
+    <Conversation/>
+    <Conversation/>
+    <Conversation/>
+    <Conversation/>
+    <Conversation/>
+    <Conversation/>
+  </ScrollView>
 );
 export default Messages;
