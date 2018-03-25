@@ -8,7 +8,7 @@ export default StyleSheet.create({
     },
     //TODO fix this hack
     routes: {
-        minHeight: '79%',
-        maxHeight: '79%'
+        minHeight: '85%',
+        maxHeight: '85%'
     }
 });
