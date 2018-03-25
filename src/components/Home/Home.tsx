@@ -8,6 +8,7 @@ import Settings from "../Settings";
 import AddMessage from '../AddMessage';
 import Header from '../Header';
 import Chat from '../Chat';
+import LanguagePanel from '../LanguagePanel';
 
 import styles from './styles';
 
@@ -21,11 +22,10 @@ export default class Home extends React.Component<{}> {
           <Route path="/addMessage" component={AddMessage} />
           <Route path="/settings" component={Settings} />
           <Route path="/chat/:chatName" component={Chat} />
-          {/* <Route path="/chat/:chatName" component={(props: {}) => (<Chat {...props} />)} /> */}
+          <Route path="/languagePanel" component={LanguagePanel} />
         </View>
         <Nav />
       </View>
     );
   }
 }
-
