@@ -3,8 +3,12 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     nav: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        bottom: 0
+        // justifyContent: 'flex-end',
+        alignSelf: "baseline",
+        position: 'absolute',
+        borderBottomWidth: 4,
+        alignItems: "flex-end",
+        top: '100%'
     },
     navItem: {
         flex: 1,
