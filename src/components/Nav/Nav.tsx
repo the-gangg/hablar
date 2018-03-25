@@ -10,7 +10,6 @@ import styles from './styles';
 
 const Nav = (props: {}) => (
   <View>
-
     <View style={styles.nav}>
       <Link
         to="/messages"
@@ -29,6 +28,12 @@ const Nav = (props: {}) => (
         underlayColor='#f0f4f7'
         style={styles.navItem} >
         <Text>Add Message</Text>
+      </Link>
+      <Link
+        to="/signup"
+        underlayColor='#f0f4f7'
+        style={styles.navItem} >
+        <Text>Sign Up</Text>
       </Link>
     </View>
   </View>
