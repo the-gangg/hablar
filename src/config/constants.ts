@@ -15,3 +15,13 @@ export const Colors = {
 export const Font = {
   HEADER: 'Arial Rounded MT Bold',
 };
+
+export type Tab = 'messages' | 'contacts' | 'languages' | 'extra' | 'settings';
+
+export enum Tabs {
+  MESSAGES = 'messages',
+  CONTACTS = 'contact',
+  SETTINGS = 'settings',
+  LANGUAGES = 'languages',
+  EXTRA = 'extra',
+};

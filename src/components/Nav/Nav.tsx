@@ -8,45 +8,45 @@ import styles from './styles';
 
 const ICO_SIZE = 30;
 
-const NavIcon = ({ name, active = false }: { name: string, active?: boolean }) => (
+const NavIcon = ({ name, active = true }: { name: string, active?: boolean }) => (
   <Icon
     name={name}
     size={ICO_SIZE}
     iconStyle={styles.iconStyle}
-    color={active ? Colors.ICON_HIGHLIGHT : undefined} />
+    color={active ? Colors.ICON_HIGHLIGHT : Colors.ICON} />
 );
 
-const Nav = ({ style }: { style?: ViewStyle }) => (
+const Nav = ({ style, active }: { style?: ViewStyle, active: string }) => (
   <View style={[styles.nav, style]}>
     <Link
       to="/messages"
       underlayColor='#f0f4f7'
       style={styles.navItem}>
-      <NavIcon name='message' />
+      <NavIcon name='message' active={active === 'messages'} />
     </Link>
     <Link
-      to="/createChat"
+      to="/contacts"
       underlayColor='#f0f4f7'
       style={styles.navItem} >
-      <NavIcon name='person-add' />
+      <NavIcon name='person-add' active={active === 'contacts'} />
     </Link>
     <Link
       to="/signup"
       underlayColor='#f0f4f7'
       style={styles.navItem} >
-      <NavIcon name='person-outline' />
+      <NavIcon name='person-outline' active={active === 'extra'} />
     </Link>
     <Link
       to="/login"
       underlayColor='#f0f4f7'
       style={styles.navItem}>
-      <NavIcon name='person-pin' />
+      <NavIcon name='person-pin' active={active === 'languages'} />
     </Link>
     <Link
       to="/settings"
       underlayColor='#f0f4f7'
       style={styles.navItem}>
-      <NavIcon name='settings' />
+      <NavIcon name='settings' active={active === 'settings'} />
     </Link>
   </View>
 );

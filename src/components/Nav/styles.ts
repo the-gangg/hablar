@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '../../config/constants';
-
 export default StyleSheet.create({
   nav: {
     backgroundColor: 'skyblue',
@@ -14,7 +12,6 @@ export default StyleSheet.create({
     width: '20%',
   },
   iconStyle: {
-    color: Colors.ICON,
     marginTop: '19%',
     alignSelf: 'center',
   }
