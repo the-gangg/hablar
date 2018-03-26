@@ -7,4 +7,6 @@ export const Colors = {
   COLOR4: '#596F7F',
   COLOR5: '#5297CC',
   BG: 'white',
+  ICON: 'black',
+  ICON_HIGHLIGHT: 'white',
 };
