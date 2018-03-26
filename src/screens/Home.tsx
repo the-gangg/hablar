@@ -2,13 +2,10 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { Route, Switch } from 'react-router-native';
 
-import Nav from '../components/Nav';
-import Messages from '../components/Messages';
-import Settings from '../components/Settings';
-import Contacts from '../components/Contacts';
+import hermesRoutes, { DEFAULT_ROUTE_PATH } from '../config/routes';
+
 import Header from '../components/Header';
-import Chat from '../components/Chat';
-import LanguagePanel from '../components/LanguagePanel';
+import Nav from '../components/Nav';
 
 import styles from './styles';
 
@@ -17,17 +14,17 @@ interface HomeProps {
 }
 
 const Home = ({ location: { pathname } }: HomeProps) => {
-  const name = pathname.substring(1);
+  const name = pathname === '/' ? DEFAULT_ROUTE_PATH : pathname.substring(1);
   return (
     <View>
       <Header style={styles.homeHeader} {...{ name }} />
       <View style={styles.custom}>
-        <Switch >
-          <Route exact path="/messages" component={Messages} />
-          <Route path="/contacts" component={Contacts} />
-          <Route path="/settings" component={Settings} />
-          <Route path="/chat/:chatName" component={Chat} />
-          <Route path="/languagePanel" component={LanguagePanel} />
+        <Switch>
+          {
+            hermesRoutes.map(({ exact, path, component }, i) => (
+              <Route key={`home-route-${i}`} exact={exact} path={`/${path}`} component={component} />
+            ))
+          }
         </Switch>
       </View>
       <Nav style={styles.homeNav} active={name} />
