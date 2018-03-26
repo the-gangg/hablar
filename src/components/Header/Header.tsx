@@ -3,9 +3,10 @@ import { View, Text, ViewStyle } from 'react-native';
 
 import styles from './styles';
 
-const Header = ({ style }: { style?: ViewStyle }) => (
+const Header = ({ name = 'Hermes', style }: { name: string, style?: ViewStyle }) => (
   <View style={[styles.container, style]}>
-    <Text>Header</Text>
-  </View>
+    {/* TODO(UX) add prop option to render icon */}
+    <Text style={styles.headerText}>{name}</Text>
+  </View >
 );
 export default Header;

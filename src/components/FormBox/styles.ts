@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '../../config/constants';
+import { Colors, Font } from '../../config/constants';
 
 export default StyleSheet.create({
   container: {
@@ -22,8 +22,8 @@ export default StyleSheet.create({
     backgroundColor: Colors.COLOR2,
   },
   formBoxHeaderText: {
-    fontFamily: 'Arial Rounded MT Bold',
-    color: 'white',
+    fontFamily: Font.HEADER,
+    color: Colors.HEADER,
     fontSize: 45,
     alignSelf: 'center',
   },

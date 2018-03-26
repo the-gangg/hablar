@@ -9,4 +9,9 @@ export const Colors = {
   BG: 'white',
   ICON: 'black',
   ICON_HIGHLIGHT: 'white',
+  HEADER: 'black',
+};
+
+export const Font = {
+  HEADER: 'Arial Rounded MT Bold',
 };

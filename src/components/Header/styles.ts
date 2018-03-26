@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '../../config/constants';
+import { Colors, Font } from '../../config/constants';
 
 export default StyleSheet.create({
   container: {
@@ -8,5 +8,12 @@ export default StyleSheet.create({
     width: '100%',
     backgroundColor: Colors.COLOR2,
     alignItems: 'center',
+  },
+  headerText: {
+    fontFamily: Font.HEADER,
+    color: Colors.HEADER,
+    fontSize: 40,
+    alignSelf: 'center',
+    marginTop: '3%',
   },
 });
