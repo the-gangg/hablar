@@ -1,10 +1,10 @@
 import * as React from 'react';
-import CreateChat from './';
-
 import * as renderer from 'react-test-renderer';
 
+import Contacts from './';
+
 it('renders without crashing', () => {
-  const rendered = renderer.create(<CreateChat />).toJSON();
+  const rendered = renderer.create(<Contacts />).toJSON();
   expect(rendered).toBeTruthy();
 });
 

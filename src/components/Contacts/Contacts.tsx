@@ -3,9 +3,9 @@ import { View, Text } from 'react-native';
 
 import styles from './styles';
 
-const CreateChat = () => (
+const Contacts = () => (
   <View style={styles.container}>
     <Text> In New Message</Text>
   </View>
 );
-export default CreateChat;
+export default Contacts;
