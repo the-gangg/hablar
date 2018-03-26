@@ -2,20 +2,18 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   nav: {
+    backgroundColor: 'skyblue',
+    width: '100%',
+    height: '100%',
+    flex: 1,
     flexDirection: 'row',
-    // justifyContent: 'flex-end',
-    alignSelf: 'baseline',
-    position: 'absolute',
-    borderBottomWidth: 4,
-    alignItems: 'flex-end',
-    top: '100%'
   },
   navItem: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 10,
+    width: '20%',
+    // flex: 1,
+    // alignItems: 'center',
   },
   subNavItem: {
-    padding: 5,
+    // padding: 5,
   },
 });

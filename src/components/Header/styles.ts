@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
 
+import { Colors } from '../../config/constants';
+
 export default StyleSheet.create({
   container: {
-    marginTop: 10,
-    padding: 10,
+    height: '100%',
+    width: '100%',
+    backgroundColor: Colors.COLOR2,
     alignItems: 'center',
-    borderBottomWidth: 4
   },
 });

@@ -1,20 +1,22 @@
 import { StyleSheet } from 'react-native';
 
+import { Colors } from '../config/constants';
+
 export default StyleSheet.create({
   container: {
-    marginTop: 70,
-    padding: 10,
+    marginTop: '40%',
     alignItems: 'center',
   },
-  homeContainer: {
-    marginTop: 25,
-    padding: 10,
-    flex: 1
+  custom: {
+    height: '100%',
+    backgroundColor: Colors.BG,
+    maxHeight: '82%',
   },
-  //TODO(UX) fix this hack
-  routes: {
-    minHeight: '85%',
-    maxHeight: '85%'
+  homeHeader: {
+    maxHeight: '10%',
+  },
+  homeNav: {
+    maxHeight: '8%',
   }
 
 });

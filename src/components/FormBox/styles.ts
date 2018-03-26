@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+import { Colors } from '../../config/constants';
 
+export default StyleSheet.create({
   container: {
     marginTop: 70,
     padding: 10,
@@ -18,7 +19,7 @@ export default StyleSheet.create({
   formBoxHeader: {
     width: '100%',
     height: 60,
-    backgroundColor: 'skyblue'
+    backgroundColor: Colors.COLOR2,
   },
   formBoxHeaderText: {
     fontFamily: 'Arial Rounded MT Bold',

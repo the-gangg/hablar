@@ -13,10 +13,10 @@ import LanguagePanel from '../components/LanguagePanel';
 import styles from './styles';
 
 const Home = () => (
-  <View style={styles.homeContainer}>
-    <Header />
-    <View style={styles.routes}>
-      <Switch>
+  <View>
+    <Header style={styles.homeHeader} />
+    <View style={styles.custom}>
+      <Switch >
         <Route exact path="/messages" component={Messages} />
         <Route path="/addMessage" component={CreateChat} />
         <Route path="/settings" component={Settings} />
@@ -24,8 +24,8 @@ const Home = () => (
         <Route path="/languagePanel" component={LanguagePanel} />
       </Switch>
     </View>
-    <Nav />
-  </View>
+    <Nav style={styles.homeNav} />
+  </View >
 );
 
 export default Home;
