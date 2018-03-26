@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { Route, Switch, NativeRouter } from 'react-router-native';
 
+import { HermesRoutes } from '../config/constants';
+
 import Home from './Home';
-import LogIn from './LogIn';
+import Login from './Login';
 import SignUp from './SignUp';
 
 const App = () => (
   <NativeRouter>
     <Switch>
-      <Route path="/signup" component={SignUp} />
-      <Route path="/login" component={LogIn} />
-      <Route path="/" component={Home} />
+      <Route path={HermesRoutes.SIGNUP} component={SignUp} />
+      <Route path={HermesRoutes.LOGIN} component={Login} />
+      <Route path={HermesRoutes.HOME} component={Home} />
     </Switch>
   </NativeRouter>
 );
