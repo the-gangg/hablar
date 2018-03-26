@@ -18,6 +18,7 @@ export interface FormBoxProps {
   onSubmit: (data: { [key: string]: any }) => void;
 }
 
+// TODO(MAN) decide where/how to handle validation
 class FormBox extends React.Component<FormBoxProps, FormBoxState>  {
   constructor(props: FormBoxProps) {
     super(props);

@@ -1,3 +1,5 @@
+import { HermesRoutes } from './constants';
+
 import Messages from '../components/Messages';
 import Contacts from '../components/Contacts';
 import Settings from '../components/Settings';
@@ -10,30 +12,30 @@ interface HermesRoute {
   exact: boolean;
 }
 
-const routes: Array<HermesRoute> = [
+const homeRoutes: Array<HermesRoute> = [
   {
     name: 'Messages',
-    path: 'messages',
+    path: HermesRoutes.MESSAGES,
     component: Messages,
     screen: false,
     exact: true,
   },
   {
     name: 'Contacts',
-    path: 'contacts',
+    path: HermesRoutes.CONTACTS,
     component: Contacts,
     screen: false,
     exact: true,
   },
   {
     name: 'Settings',
-    path: 'settings',
+    path: HermesRoutes.SETTINGS,
     component: Settings,
     screen: false,
     exact: true,
   },
 ];
 
-export const DEFAULT_ROUTE_PATH = routes[0].path;
+export const DEFAULT_ROUTE_PATH = homeRoutes[0].path;
 
-export default routes;
+export default homeRoutes;

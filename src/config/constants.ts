@@ -1,3 +1,5 @@
+import routes from './routes';
+
 export const Colors = {
   APP_COLOR: '#5DBCD2',
   COLOR1: '#335F7F',
@@ -14,6 +16,15 @@ export const Colors = {
 
 export const Font = {
   HEADER: 'Arial Rounded MT Bold',
+};
+
+export const HermesRoutes = {
+  HOME: '/',
+  LOGIN: '/login',
+  SIGNUP: '/signup',
+  MESSAGES: '/messages',
+  CONTACTS: '/contacts',
+  SETTINGS: '/settings',
 };
 
 export type Tab = 'messages' | 'contacts' | 'languages' | 'extra' | 'settings';
