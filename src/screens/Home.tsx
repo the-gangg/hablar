@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { Route, Switch } from 'react-router-native';
+import { Route, Switch, Redirect } from 'react-router-native';
 
 import { HermesRoutes } from '../config/constants';
 import homeRoutes, { DEFAULT_ROUTE_PATH } from '../config/routes';
@@ -26,6 +26,7 @@ const Home = ({ location: { pathname } }: HomeProps) => {
               <Route key={`home-route-${i}`} {...{ exact, path, component }} />
             ))
           }
+          <Redirect to={{ pathname: DEFAULT_ROUTE_PATH }} />
         </Switch>
       </View>
       <Nav style={styles.homeNav} active={name} />
